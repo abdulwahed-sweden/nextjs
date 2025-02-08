@@ -1,17 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { DarkThemeToggle } from "flowbite-react";
+
 import Head from "next/head";
 import { Button } from "flowbite-react";
 import "flowbite";
+
+import NavigationBar from "../components/Navbar";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // فتح المودال تلقائيًا عند تحميل الصفحة (يمكنك إزالته إذا لم يكن ضروريًا)
-    setIsModalOpen(true);
+    setIsModalOpen(false);
   }, []);
 
   return (
@@ -19,6 +21,9 @@ export default function Home() {
       <Head>
         <title>Tailwind CSS + Next.js</title>
       </Head>
+      
+      <NavigationBar />
+      
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-5">
         {/* زر فتح المودال */}
         <div className="flex justify-center m-5">
@@ -99,9 +104,9 @@ export default function Home() {
           </div>
         )}
 
-        {/* زر تفعيل الوضع المظلم */}
-        <DarkThemeToggle />
+        
       </div>
+      
     </>
   );
 }
